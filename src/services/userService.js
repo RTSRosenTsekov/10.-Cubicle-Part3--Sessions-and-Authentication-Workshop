@@ -1,6 +1,5 @@
+const User = require("../models/User");
 
-
-
-exports.register = (username,password,repeatPassword)=>{
-    
+exports.register = (userData) => {
+  return User.create(userData);
 };
