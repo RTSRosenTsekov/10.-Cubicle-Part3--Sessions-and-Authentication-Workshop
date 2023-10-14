@@ -48,7 +48,7 @@ exports.create = async (cubeData) => {
 };
 
 exports.getSingleCube = (id) => {
-  return Cube.findById(id).populate('accessories');
+  return Cube.findById(id).populate("accessories");
   //return cubes.find((cube) => cube.id === id);
 };
 
@@ -56,4 +56,9 @@ exports.attachAccessory = async (cubeId, accessoryId) => {
   const cube = await this.getSingleCube(cubeId);
   cube.accessories.push(accessoryId);
   return cube.save();
+};
+
+exports.update = (id, cubeData) => {
+ const cube =  Cube.findByIdAndUpdate(id, cubeData);
+  return cube;
 };
