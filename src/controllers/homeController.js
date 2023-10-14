@@ -5,7 +5,7 @@ router.get("/",async (req, res) => {
   const { search, from, to } = req.query;
   const {user} = req;
 
-  console.log({user});
+  //console.log({user});
   
   const cubes = await cubeService.getAll(search, from, to);
 
