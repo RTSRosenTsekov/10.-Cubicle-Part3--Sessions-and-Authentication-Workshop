@@ -62,3 +62,8 @@ exports.update = (id, cubeData) => {
  const cube =  Cube.findByIdAndUpdate(id, cubeData);
   return cube;
 };
+
+exports.delete = (id) => {
+  const cube =  Cube.findByIdAndDelete(id);
+   return cube;
+ };
