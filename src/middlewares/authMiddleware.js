@@ -9,12 +9,12 @@ exports.auth =async (req, res,next) => {
         req.user = decodedToken;
         res.locals.user = decodedToken;
         res.locals.isAuthenticated = true;
-        
+
         next();
 
     } catch (error) {
         console.log({error});
-        res.cookieClear("auth");
+        res.clearCookie("auth");
         res.redirect("/users/login");
     }
   }else{
