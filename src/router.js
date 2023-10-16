@@ -3,12 +3,12 @@ const homeController = require("./controllers/homeController");
 const cubeController = require("./controllers/cubeController");
 const accessoryController = require("./controllers/accessoryController");
 const userController = require("./controllers/userController");
-
+const {isAuth} = require("./middlewares/authMiddleware");
 
 // Регистрираме раутовете
 router.use(homeController);
 router.use("/cubes", cubeController);
-router.use('/accessories', accessoryController);
+router.use('/accessories', isAuth, accessoryController);
 router.use('/users',userController);
 
 router.get("*", (req, res) => {
